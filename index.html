@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Rock, Paper, Scissors, Lizard, Spock</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Start Modal -->
+    <div class="modal fade" data-bs-backdrop="static" data-bs-keyword='false' tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+        <div class="modal-dialog text-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Prepare For Battle</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="start-form" class="needs-validation" novalidate>
+
+                        <div class="form-group">
+                            <label for="rounds" class="form-label">How Many Rounds Would You Like To Play?</label>
+                            <input id="input" type="number" class="form-control" min="3" max="500" required>
+                            <small class="text-muted">3 Rounds Minimum, 500 Max</small>
+                            <div class="invalid-feedback">Required</div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn-primary">Let's Do this!</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Rock, Paper, Scissors, Lizard, Spock</a>
+            <button class="navbar-toggler mr-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="#">Disabled</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container text-center">
+
+        <section class="card mt-3">
+
+            <div class="card-header">Computer Choice</div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li id="computer-choice" class="list-group-item">???</li>
+                </ul>
+            </div>
+
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col">Computer Score: <span id="computer-score">0</span></div>
+                    <div class="col">Round: <span id="round"></span></div>
+                    <div class="col">Your Score: <span class="user-score">0</span></div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <button id="start-button" class="btn btn-outline-dark mt-3">Start A Game!</button>
+
+
+        <!-- Tie Alert -->
+
+
+        <section class="alert alert-warning mt-3" role="alert" style="display: none;">
+            <h4 class="alert-heading">It's a tie!</h4>
+            <p>No one won ¯\_(ツ)_/¯ </p>
+
+            <p>Your points: <span id="tie-points"></span></p>
+            <hr>
+            <p class="mb-0">Maybe try playing 500 times?</p>
+            <div class="justify-content-center mt-3">
+
+                <button id="tie-button" class="btn btn-outline-warning">Play Again?</button>
+            </div>
+        </section>
+
+        <!-- Lose Alert -->
+
+        <section id="alert-lose" class="alert alert-danger mt-3" role="alert" style="display: none;">
+
+            <h4 class="alert-heading">You Lost!</h4>
+            <p>Out of <span id="lose-rounds"></span> rounds, you won <span id="turn-rounds"></span> times</p>
+            <hr>
+            <p class="mb-0">Better luck next time.</p>
+
+            <div class="justify-content-center mt-3">
+
+                <button id="lose-button" class="btn btn-outline-danger">Play Again?</button>
+            </div>
+
+
+        </section>
+
+
+        <!-- Win Alert -->
+
+        <section id="alert-win" class="alert alert-success mt-3" role="alert" style="display: none;">
+
+            <h4 class="alert-heading">You Won!</h4>
+            <p class="win-msg"></p>
+            <hr>
+            <form id="win-form" class="needs-validation" novalidate>
+                <div class="form-group">
+                    <label for="initial" class="form-label"></label>
+                    <input type="text" class="form-control" id="win-put" max="20" required>
+                    <small class="text-muted">No profanity please</small>
+                    <div class="invalid-feedback">C'mon? You gotta put something.</div>
+                </div>
+                <div class="form-group">
+                    <button id="win-submit" class="btn btn-outline-success">Submit</button>
+                </div>
+            </form>
+        </section>
+
+
+        <section class="card mt-3">
+
+            <div class="card-header">Choose One</div>
+
+            <ul id="no-button" class="list-group">
+                <li class="list-group-item" data-value="rock">Rock</li>
+                <li class="list-group-item" data-value="paper">Paper</li>
+                <li class="list-group-item" data-value="scissors">Scissors</li>
+                <li class="list-group-item" data-value="lizard">Lizard</li>
+                <li class="list-group-item" data-value="spock">Spock</li>
+            </ul>
+        </section>
+
+
+    </main>
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
