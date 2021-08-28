@@ -46,3 +46,31 @@ Lizard > Spock, Paper
 
 Spock > Rock, Scissors
 */
+
+form.forEach((form) => {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const target = e.target;
+
+    if (e.target.id == "start-form") {
+      console.log("boop");
+      if (form.checkValidity() == false) {
+        e.preventDefault();
+      }
+      form.classList.add("was-validated");
+      if (startInput.value > 2 || startInputvalue < 501) {
+        gameActive = true;
+        round = startInput.value;
+        modal.hide();
+      }
+      startInput.value = "";
+      form.classList.remove("was-validated");
+    }
+  });
+});
+
+primaryStart.addEventListener("click", (e) => {
+  e.preventDefault();
+  modal.show();
+});
