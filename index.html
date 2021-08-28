@@ -47,14 +47,18 @@
             <button class="navbar-toggler mr-auto" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-down-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 2.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
+                </svg>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav mr-auto">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                     <a class="nav-link" href="#">Features</a>
                     <a class="nav-link" href="#">Pricing</a>
-                    <a class="nav-link" href="#">Disabled</a>
+                    <a class="nav-link" href="#">Contact</a>
                 </div>
             </div>
         </div>
@@ -75,7 +79,7 @@
                 <div class="row">
                     <div class="col">Computer Score: <span id="computer-score">0</span></div>
                     <div class="col">Round: <span id="round"></span></div>
-                    <div class="col">Your Score: <span class="user-score">0</span></div>
+                    <div class="col">Your Score: <span id="user-score">0</span></div>
                 </div>
             </div>
 
@@ -83,7 +87,7 @@
 
 
 
-        <button id="start-button" class="btn btn-outline-dark mt-3">Start A Game!</button>
+        <button id="start-button" class="btn btn-outline-dark mt-3">Start A Game!</button> </div>
 
 
         <!-- Tie Alert -->
@@ -125,14 +129,14 @@
         <section id="alert-win" class="alert alert-success mt-3" role="alert" style="display: none;">
 
             <h4 class="alert-heading">You Won!</h4>
-            <p class="win-msg"></p>
+            <p id="win-msg"></p>
             <hr>
             <form id="win-form" class="needs-validation" novalidate>
                 <div class="form-group">
                     <label for="initial" class="form-label"></label>
                     <input type="text" class="form-control" id="win-put" max="20" required>
                     <small class="text-muted">No profanity please</small>
-                    <div class="invalid-feedback">C'mon? You gotta put something.</div>
+                    <div class="invalid-feedback mb-3">C'mon? You gotta put something.</div>
                 </div>
                 <div class="form-group">
                     <button id="win-submit" class="btn btn-outline-success">Submit</button>
