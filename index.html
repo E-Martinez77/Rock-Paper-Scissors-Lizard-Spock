@@ -14,8 +14,8 @@
 
 <body>
     <!-- Start Modal -->
-    <div class="modal fade" data-bs-backdrop="static" data-bs-keyword='false' tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div id="form-modal" class="modal fade" data-bs-backdrop="static" data-bs-keyword='false' tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="false">
 
         <div class="modal-dialog text-center">
             <div class="modal-content">
@@ -31,8 +31,8 @@
                             <small class="text-muted">3 Rounds Minimum, 500 Max</small>
                             <div class="invalid-feedback">Required</div>
                         </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn-primary">Let's Do this!</button>
+                        <div class="form-group mt-3">
+                            <button type="submit" class="btn btn-outline-dark">Let's Do this!</button>
                         </div>
 
                     </form>
@@ -89,7 +89,7 @@
         <!-- Tie Alert -->
 
 
-        <section class="alert alert-warning mt-3" role="alert" style="display: none;">
+        <section id="alert-tie" class="alert alert-warning mt-3" role="alert" style="display: none;">
             <h4 class="alert-heading">It's a tie!</h4>
             <p>No one won ¯\_(ツ)_/¯ </p>
 
