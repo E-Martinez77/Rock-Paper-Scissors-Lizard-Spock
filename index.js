@@ -53,8 +53,7 @@ form.forEach((form) => {
 
     const target = e.target;
 
-    if (e.target.id == "start-form") {
-      console.log("boop");
+    if (target.id == "start-form") {
       if (form.checkValidity() == false) {
         e.preventDefault();
       }
@@ -63,9 +62,25 @@ form.forEach((form) => {
         gameActive = true;
         round = startInput.value;
         modal.hide();
+
+        startInput.value = "";
+        form.classList.remove("was-validated");
       }
       startInput.value = "";
       form.classList.remove("was-validated");
+    } else if (target.id == "win-form") {
+      e.preventDefault();
+      if (form.checkValidity() == false) {
+        e.preventDefault();
+      }
+      form.classList.add("was-validated");
+      //todo: POST to DB
+      //Placeholder conditional for testing
+      if (alertWinPut.value) {
+        alertWinPut.value = "";
+        alertWinDiv.setAttribute("style", "display : none;");
+        form.classList.remove("was-validated");
+      }
     }
   });
 });
@@ -73,4 +88,5 @@ form.forEach((form) => {
 primaryStart.addEventListener("click", (e) => {
   e.preventDefault();
   modal.show();
+  primaryStart.setAttribute("style", "display : none;");
 });
