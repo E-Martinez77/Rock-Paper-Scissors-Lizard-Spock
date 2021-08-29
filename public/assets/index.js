@@ -186,8 +186,8 @@ ulSelector.addEventListener("click", (e) => {
   if (turn != round && gameActive) {
     const element = e.target;
     const target = e.target.getAttribute("data-value");
-    //   const compPlay = comp[Math.floor(Math.random() * comp.length)];
-    const compPlay = "paper";
+    const compPlay = comp[Math.floor(Math.random() * comp.length)];
+    // const compPlay = "paper";
     whoWon(target, compPlay, element);
   } else {
     e.preventDefault();
