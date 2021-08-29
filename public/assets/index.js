@@ -79,22 +79,36 @@ form.forEach((form) => {
       }
       form.classList.add("was-validated");
       //todo: POST to DB
+
       //Placeholder conditional for testing
       if (alertWinPut.value) {
-        let newWinner = {
+        const newWinner = {
           name: alertWinPut.value,
-          score: loggedScore,
-          rounds_played: round,
+          rounds: round,
+          points: loggedScore,
         };
 
-        console.log(newWinner);
+        fetch("/api/new-score", {
+          method: "POST",
+          body: JSON.stringify(newWinner),
+          headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.errors) {
+              console.log(data.errors);
+            } else {
+              clearAll();
+              alertWinPut.value = "";
+              alertWinDiv.setAttribute("style", "display: none;");
+              form.classList.remove("was-validated");
 
-        clearAll();
-        alertWinPut.value = "";
-        alertWinDiv.setAttribute("style", "display: none;");
-        form.classList.remove("was-validated");
-
-        primaryStart.setAttribute("style", "display: inline-block;");
+              primaryStart.setAttribute("style", "display: inline-block;");
+            }
+          });
       }
     }
   });
